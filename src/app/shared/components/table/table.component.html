@@ -1,0 +1,72 @@
+<div class="list">
+  <div class="table-responsive">
+    <table>
+      <thead>
+        <tr>
+          <th *ngFor="let column of columns">
+            {{ column.title }}
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of displayedList; trackBy: trackByFn">
+          <td *ngFor="let column of columns">
+            <img
+              *ngIf="column.type === 'img'"
+              [src]="item[column.key]"
+              alt="Logo"
+              class="logo-image"
+            />
+
+            <span *ngIf="column.type === 'text'">
+              {{ item[column.key] }}
+            </span>
+          </td>
+          <td *ngIf="showActions">
+            <button class="icon-button" (click)="toggleMenu(item)">
+              <app-icon
+                alt="DotsIcon"
+                name="dots-vertical.svg"
+                [size]="20"
+              ></app-icon>
+            </button>
+
+            <div *ngIf="isMenuOpenFor(item)" class="menu">
+              <button
+                class="menu-item"
+                (click)="onClickActions('update', item)"
+              >
+                Editar
+              </button>
+              <button
+                class="menu-item"
+                (click)="onClickActions('delete', item)"
+              >
+                Eliminar
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="no-records" *ngIf="displayedList.length === 0">
+      <span>No existen registros</span>
+    </div>
+  </div>
+  <div class="paginator">
+    <span class="info-page">{{ displayedList.length }} Resultados</span>
+    <div class="custom-select">
+      <select [formControl]="sizeOptionControl">
+        <option *ngFor="let option of paginatorSizeOptions" [value]="option">
+          {{ option }}
+        </option>
+      </select>
+      <app-icon
+        alt="ArrowPoint"
+        name="arrow-point-to-down.png"
+        [size]="9"
+      ></app-icon>
+    </div>
+  </div>
+</div>

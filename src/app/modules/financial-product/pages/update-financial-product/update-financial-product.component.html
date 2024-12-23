@@ -1,0 +1,8 @@
+<div class="container">
+  <app-form-financial-product
+    *ngIf="financialProduct"
+    [financialProduct]="financialProduct"
+    (saveEmit)="updateProduct($event)"
+    [isLoadingSave]="this.isLoadingSave"
+  ></app-form-financial-product>
+</div>

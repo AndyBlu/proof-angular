@@ -1,0 +1,51 @@
+@import "../../../../styles/variables.scss";
+
+.text-field-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    font-size: 14px;
+    font-weight: 600;
+    color: black;
+  }
+
+  input {
+    padding: 0.8rem;
+    border: 2px solid $border-color;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: $font-primary;
+    color: $text-color;
+    transition: border-color 0.3s ease;
+
+    &::placeholder {
+      color: $placeholder-color;
+    }
+
+    &:focus {
+      border-color: $focus-color;
+      outline: none;
+    }
+
+    &.invalid {
+      border-color: $error-color;
+    }
+
+    &.disabled {
+      background-color: $secondary-background-color !important;
+    }
+  }
+
+  &.disabled {
+    opacity: 0.5;
+  }
+
+  .error-text {
+    font-size: 13px;
+    font-weight: 500;
+    color: $error-color;
+    margin-top: 0.1rem;
+  }
+}

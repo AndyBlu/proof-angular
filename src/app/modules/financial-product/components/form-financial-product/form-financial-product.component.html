@@ -1,0 +1,69 @@
+<div class="container-page">
+  <div class="card">
+    <div class="title-page">
+      <span
+        >Formulario de
+        {{ financialProduct ? "Actualización" : "Registro" }}</span
+      >
+    </div>
+    <form
+      [class.disabled-form]="isLoadingSave"
+      [formGroup]="financialProductFormGroup"
+      class="form-page"
+      (submit)="onSave()"
+    >
+      <app-text-field
+        formControlName="id"
+        nameControl="id"
+        labelText="ID"
+        placeholder="Ingrese un ID"
+      ></app-text-field>
+
+      <app-text-field
+        formControlName="name"
+        nameControl="name"
+        labelText="Nombre"
+        placeholder="Ingrese el nombre"
+      ></app-text-field>
+      <app-text-field
+        formControlName="description"
+        nameControl="description"
+        labelText="Descripción"
+        placeholder="Ingrese la descripción"
+      ></app-text-field>
+
+      <app-text-field
+        formControlName="logo"
+        nameControl="logo"
+        labelText="Logo"
+        placeholder="Ingrese el logo"
+      ></app-text-field>
+      <app-text-field
+        formControlName="date_release"
+        nameControl="date_release"
+        labelText="Fecha Liberación"
+        placeholder=""
+        [isDateField]="true"
+      ></app-text-field>
+      <app-text-field
+        formControlName="date_revision"
+        nameControl="date_revision"
+        labelText="Fecha Revisión"
+        placeholder=""
+      ></app-text-field>
+
+      <div class="btn-form">
+        <app-button
+          title="Reiniciar"
+          color="secondary"
+          (onClickBtn)="resetForm()"
+        ></app-button>
+        <app-button
+          typeBtn="submit"
+          title="Enviar"
+          [disabled]="financialProductFormGroup.invalid"
+        ></app-button>
+      </div>
+    </form>
+  </div>
+</div>

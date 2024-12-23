@@ -1,0 +1,54 @@
+@import "../../../../../styles/variables.scss";
+
+.container-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  width: 100%;
+  .card {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 100%;
+    max-width: 42rem;
+
+    .title-page {
+      padding: 1.5rem;
+      text-align: center;
+      border-bottom: 3px solid $border-color;
+
+      span {
+        font-size: 1.7rem;
+        font-weight: 500;
+      }
+    }
+
+    .form-page {
+      padding: 1rem 2rem 2rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+
+      .btn-form {
+        margin-top: 2.5rem;
+        grid-column: span 2 / span 2;
+        display: flex;
+        width: 100%;
+        gap: 5rem;
+        justify-content: center;
+      }
+      app-text-field {
+        @media (max-width: 768px) {
+          grid-column: span 2 / span 2;
+        }
+      }
+    }
+    .disabled-form {
+      opacity: 0.5;
+      cursor: progress;
+      pointer-events: none;
+    }
+  }
+}

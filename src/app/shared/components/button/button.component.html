@@ -1,0 +1,9 @@
+<button
+  [disabled]="disabled"
+  [type]="typeBtn"
+  [class.primary]="color === 'primary'"
+  [class.secondary]="color === 'secondary'"
+  (click)="emitOnclickBtn()"
+>
+  {{ title }}
+</button>

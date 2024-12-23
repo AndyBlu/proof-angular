@@ -1,0 +1,44 @@
+app-list-financial-product {
+  width: 100%;
+}
+
+app-table {
+  width: 100%;
+}
+
+.filter-btn {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    app-button {
+      text-align: right;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+form {
+  width: 20rem;
+  overflow-x: hidden;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  margin: 5rem;
+
+  @media (max-width: 768px) {
+    margin: 0rem;
+  }
+}

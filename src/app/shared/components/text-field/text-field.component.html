@@ -1,0 +1,22 @@
+<div
+  *ngIf="nameControl"
+  class="text-field-container"
+  [class.disabled]="isDisabled"
+>
+  <label *ngIf="labelText">{{ labelText }}</label>
+
+  <input
+    [type]="isDateField ? 'date' : 'text'"
+    [value]="value"
+    [placeholder]="placeholder"
+    [disabled]="isDisabled"
+    (input)="handleInputChange($event)"
+    (blur)="handleBlur()"
+    [class.disabled]="isDisabled"
+    [class.invalid]="control.invalid && (control.dirty || control.touched)"
+  />
+
+  <div *ngIf="errorMessage" class="error-text">
+    {{ errorMessage }}
+  </div>
+</div>

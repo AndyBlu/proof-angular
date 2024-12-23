@@ -1,0 +1,21 @@
+<div class="container">
+  <!-- Filter -->
+  <div class="filter-btn">
+    <form [formGroup]="filterForm">
+      <app-text-field
+        formControlName="filterText"
+        nameControl="filterText"
+        placeholder="Search..."
+        (ngModelChange)="filterList()"
+      ></app-text-field>
+    </form>
+    <app-button title="Agregar" (onClickBtn)="goToCreateProduct()"></app-button>
+  </div>
+  <!-- List -->
+  <app-table
+    [columns]="columns"
+    [list]="listFinancialProductAux"
+    (emitDeleteBtn)="deleteProductConfirm($event)"
+    (emitUpdateBtn)="goToEditProduct($event)"
+  ></app-table>
+</div>
